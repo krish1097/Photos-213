@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Photos App",
+      "request": "launch",
+      "mainClass": "photos.app.Photos",
+      "vmArgs": "--module-path \"${workspaceFolder}/lib-direct\" --add-modules javafx.controls,javafx.fxml,javafx.graphics -Djava.library.path=\"${workspaceFolder}/lib-direct\""
+    }
+  ]
+} 

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.AlbumViewController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleBackToAlbumList" text="Back to Albums" />
+                    <SeparatorMenuItem mnemonicParsing="false" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleQuit" text="Quit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleAddPhoto" text="Add Photo" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleRemovePhoto" text="Remove Photo" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleCaptionPhoto" text="Caption Photo" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Tags">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleAddTag" text="Add Tag" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleRemoveTag" text="Remove Tag" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Album">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleCopyPhoto" text="Copy Photo to Album" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleMovePhoto" text="Move Photo to Album" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Slideshow">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handlePreviousPhoto" text="Previous Photo" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleNextPhoto" text="Next Photo" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label fx:id="albumTitleLabel" text="Album Name">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <ImageView fx:id="photoImageView" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label fx:id="photoCaptionLabel" text="Caption">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="photoDateLabel" text="Date">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="photoTagsLabel" text="Tags">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" spacing="30.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handlePreviousPhoto" text="Previous" />
+                              <Button mnemonicParsing="false" onAction="#handleNextPhoto" text="Next" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </center>
+         <left>
+            <VBox spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Photos">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="photoListView" prefHeight="400.0" prefWidth="200.0" />
+                  <Label fx:id="errorMessageLabel" textFill="RED" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </left>
+      </BorderPane>
+   </center>
+</BorderPane> 
